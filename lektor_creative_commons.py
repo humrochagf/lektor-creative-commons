@@ -6,6 +6,8 @@ from markupsafe import Markup
 
 from lektor.pluginsystem import Plugin
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 LICENSES = {
     'by': {
         'type': 'by',
@@ -55,7 +57,7 @@ class CreativeCommonsPlugin(Plugin):
 
         # append plugin templates to the template path
         self.env.jinja_env.loader.searchpath.append(
-            os.path.join(self.path, 'templates'))
+            os.path.join(ROOT_DIR, 'templates'))
 
     def render_cc_license(self, type, size='normal'):
         license = LICENSES[type].copy()
