@@ -6,7 +6,15 @@ from markupsafe import Markup
 
 from lektor.pluginsystem import Plugin
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE = (
+    '<a rel="license" href="http://creativecommons.org/licenses/' +
+    '{type}/{version}/"><img alt="Creative Commons License" ' +
+    'style="border-width:0" src="https://i.creativecommons.org/l/' +
+    '{type}/{version}/{size}.png" /></a><br />This work is licensed under ' +
+    'a <a rel="license" href="http://creativecommons.org/licenses/' +
+    '{type}/{version}/">Creative Commons {permissions} {version} ' +
+    'International License</a>.'
+)
 
 LICENSES = {
     'by': {
@@ -51,20 +59,11 @@ class CreativeCommonsPlugin(Plugin):
     name = u'Creative Commons'
     description = u'Add Creative Commons license to your pages.'
 
-
-    def __init__(self, *args, **kwargs):
-        super(CreativeCommonsPlugin, self).__init__(*args, **kwargs)
-
-        # append plugin templates to the template path
-        self.env.jinja_env.loader.searchpath.append(
-            os.path.join(ROOT_DIR, 'templates'))
-
     def render_cc_license(self, type, size='normal'):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
 
-        return Markup(self.env.jinja_env.get_template(
-            'creative-commons.html').render(license=license))
+        return Markup(TEMPLATE.format(**license))
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals.update(
