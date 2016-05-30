@@ -1,5 +1,9 @@
 # Lektor Creative Commons
 
+[![License: MIT](https://img.shields.io/pypi/l/lektor-creative-commons.svg)](https://github.com/turicas/rows/blob/develop/LICENSE)
+[![Current version at PyPI](https://img.shields.io/pypi/v/lektor-creative-commons.svg)](https://pypi.python.org/pypi/lektor-creative-commons)
+[![Downloads per month on PyPI](https://img.shields.io/pypi/dm/lektor-creative-commons.svg)](https://pypi.python.org/pypi/lektor-creative-commons)
+
 Lektor plugin to add Creative Commons license to your pages
 
 
