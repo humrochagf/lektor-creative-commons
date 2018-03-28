@@ -1,14 +1,16 @@
 from setuptools import setup
 
-with open('README.md') as readme_file:
-    README = readme_file.read()
+try:
+    import pypandoc
+    README = pypandoc.convert('README.md', 'rst')
+except (IOError, ImportError):
+    README = ''
 
 setup(
     name='lektor-creative-commons',
     description='Lektor plugin to add Creative Commons license to your pages',
     long_description=README,
-    long_description_content_type='text/markdown',
-    version='0.1.3',
+    version='0.1.4',
     url='https://github.com/humrochagf/lektor-creative-commons',
     author='Humberto Rocha',
     author_email='humrochagf@gmail.com',
