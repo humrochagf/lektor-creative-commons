@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from markupsafe import Markup
 
 from lektor.pluginsystem import Plugin
@@ -56,8 +54,8 @@ LICENSE_SIZES = {
 
 
 class CreativeCommonsPlugin(Plugin):
-    name = u'Creative Commons'
-    description = u'Add Creative Commons license to your pages.'
+    name = 'Creative Commons'
+    description = 'Add Creative Commons license to your pages.'
 
     def render_cc_license(self, type, size='normal'):
         license = LICENSES[type].copy()
