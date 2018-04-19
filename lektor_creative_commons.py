@@ -5,13 +5,14 @@ from markupsafe import Markup
 from lektor.pluginsystem import Plugin
 
 TEMPLATE = (
-    '<a rel="license" target="_blank" href="http://creativecommons.org/' +
-    'licenses/{type}/{version}/"><img alt="Creative Commons License" ' +
-    'style="border-width:0" src="https://i.creativecommons.org/l/' +
-    '{type}/{version}/{size}.png" /></a><br />This work is licensed under ' +
-    'a <a rel="license" target="_blank" href="http://creativecommons.org/' +
-    'licenses/{type}/{version}/">Creative Commons {permissions} {version} ' +
-    'International License</a>.'
+    '<a rel="license" target="_blank" href="http://creativecommons.org/'
+    'licenses/{type}/{version}/deed.{locale}">'
+    '<img alt="Creative Commons License" style="border-width:0" '
+    'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" /></a>'
+    '<br />This work is licensed under a '
+    '<a rel="license" target="_blank" href="http://creativecommons.org/'
+    'licenses/{type}/{version}/deed.{locale}">'
+    'Creative Commons {permissions} {version} International License</a>.'
 )
 
 LICENSES = {
@@ -54,12 +55,14 @@ LICENSE_SIZES = {
 
 
 class CreativeCommonsPlugin(Plugin):
+
     name = 'Creative Commons'
     description = 'Add Creative Commons license to your pages.'
 
-    def render_cc_license(self, type, size='normal'):
+    def render_cc_license(self, type, size='normal', locale=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
+        license['locale'] = locale or self.get_lektor_config().site_locale
 
         return Markup(TEMPLATE.format(**license))
 
