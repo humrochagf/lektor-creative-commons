@@ -5,12 +5,12 @@ from markupsafe import Markup
 from lektor.pluginsystem import Plugin
 
 TEMPLATE = (
-    '<a rel="license" href="http://creativecommons.org/licenses/' +
-    '{type}/{version}/"><img alt="Creative Commons License" ' +
+    '<a rel="license" target="_blank" href="http://creativecommons.org/' +
+    'licenses/{type}/{version}/"><img alt="Creative Commons License" ' +
     'style="border-width:0" src="https://i.creativecommons.org/l/' +
     '{type}/{version}/{size}.png" /></a><br />This work is licensed under ' +
-    'a <a rel="license" href="http://creativecommons.org/licenses/' +
-    '{type}/{version}/">Creative Commons {permissions} {version} ' +
+    'a <a rel="license" target="_blank" href="http://creativecommons.org/' +
+    'licenses/{type}/{version}/">Creative Commons {permissions} {version} ' +
     'International License</a>.'
 )
 
