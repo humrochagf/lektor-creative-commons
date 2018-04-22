@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import subprocess
 
@@ -12,7 +15,7 @@ except (IOError, ImportError):
 
 def create_mo_files():
     data_files = []
-    localedir = 'locales'
+    localedir = 'lektor_creative_commons/locales'
     po_dirs = [
         localedir + '/' + l + '/LC_MESSAGES/'
         for l in next(os.walk(localedir))[1]
@@ -48,7 +51,7 @@ setup(
     py_modules=['lektor_creative_commons'],
     entry_points={
         'lektor.plugins': [
-            'creative-commons = lektor_creative_commons:CreativeCommonsPlugin',
+            'creative-commons=lektor_creative_commons:CreativeCommonsPlugin',
         ]
     },
     packages=find_packages(),
