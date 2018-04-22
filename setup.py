@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
 try:
     import pypandoc
@@ -51,5 +51,8 @@ setup(
             'creative-commons = lektor_creative_commons:CreativeCommonsPlugin',
         ]
     },
+    packages=find_packages(),
+    include_package_data=True,
+    zip_safe=False,
     data_files=create_mo_files(),
 )
