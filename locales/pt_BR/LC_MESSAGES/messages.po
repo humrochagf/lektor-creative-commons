@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-04-22 14:05-0300\n"
+"PO-Revision-Date: 2018-04-22 14:06-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: lektor_creative_commons.py:68
+msgid "Creative Commons Attribution 4.0 International License"
+msgstr "Licença Internacional Creative Commons 4.0 Atribuição"
+
+#: lektor_creative_commons.py:75
+msgid "Creative Commons Attribution-NonCommercial 4.0 International License"
+msgstr "Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial"
+
+#: lektor_creative_commons.py:83
+msgid "Creative Commons Attribution-ShareAlike 4.0 International License"
+msgstr "Licença Internacional Creative Commons 4.0 Atribuição-CompartilhaIgual"
+
+#: lektor_creative_commons.py:91
+msgid ""
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License"
+msgstr ""
+"Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial-"
+"CompartilhaIgual"
+
+#: lektor_creative_commons.py:99
+msgid "Creative Commons Attribution-NoDerivatives 4.0 International License"
+msgstr "Licença Internacional Creative Commons 4.0 Atribuição-SemDerivações"
+
+#: lektor_creative_commons.py:107
+msgid ""
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License"
+msgstr ""
+"Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial-"
+"SemDerivações"
+
+#: lektor_creative_commons.py:135
+msgid "This work is licensed under a"
+msgstr "Este trabalho está licenciado sob uma"

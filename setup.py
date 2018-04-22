@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 try:
     import pypandoc
@@ -20,5 +20,9 @@ setup(
         'lektor.plugins': [
             'creative-commons = lektor_creative_commons:CreativeCommonsPlugin',
         ]
+    },
+    packages=find_packages(),
+    package_data={
+        '': ['*.pot', '*.po', '*.mo'],
     }
 )
