@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import os
+import sys
 from gettext import translation
 
 from lektor.pluginsystem import Plugin
 from markupsafe import Markup
 
+PY3 = sys.version_info > (3,)
 
 LOCALES_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -21,7 +25,10 @@ class Translator(object):
         self.lang.install()
 
     def translate(self, string):
-        return self.lang.gettext(string)
+        if PY3:
+            return self.lang.gettext(string)
+        else:
+            return self.lang.ugettext(string)
 
 
 class __proxy__(object):
