@@ -43,7 +43,7 @@ setup(
     name='lektor-creative-commons',
     description='Lektor plugin to add Creative Commons license to your pages',
     long_description=README,
-    version='0.2.2',
+    version='0.3',
     url='https://github.com/humrochagf/lektor-creative-commons',
     author='Humberto Rocha',
     author_email='humrochagf@gmail.com',
