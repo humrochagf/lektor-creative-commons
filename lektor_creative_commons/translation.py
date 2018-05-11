@@ -17,6 +17,9 @@ LOCALES_DIR = os.path.join(
 class Translator(object):
 
     def configure(self, locale):
+        if not os.path.exists(os.path.join(LOCALES_DIR, locale)):
+            locale = 'en'
+
         self.lang = gettext.translation(
             'messages', localedir=LOCALES_DIR, languages=[locale])
         self.lang.install()

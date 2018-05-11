@@ -23,3 +23,13 @@ On your templates use:
 ```
 <div class="license">{{ render_cc_license('by-sa') }}</div>
 ```
+
+## Internationalization support
+
+This plugin has support to internationalization, and changes it language based on `.lektorproject` file.
+The Current supported locales are:
+
+- en
+- pt_BR
+
+Any other locale will default to `en` (english).
