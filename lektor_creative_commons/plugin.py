@@ -7,15 +7,27 @@ from markupsafe import Markup
 
 from .translation import translate_lazy as _
 
-TEMPLATE = (
-    '<a rel="license" target="_blank" href="http://creativecommons.org/'
-    'licenses/{type}/{version}/deed.{locale}">'
-    '<img alt="Creative Commons {type}" style="border-width:0" '
-    'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
-    '</a><br />{message} '
-    '<a rel="license" target="_blank" href="http://creativecommons.org/'
-    'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
-)
+TEMPLATES = {
+    'full': (
+        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        'licenses/{type}/{version}/deed.{locale}">'
+        '<img alt="Creative Commons {type}" style="border-width:0" '
+        'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
+        '</a><br />{message} '
+        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
+    ),
+    'image-only': (
+        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        'licenses/{type}/{version}/deed.{locale}">'
+        '<img alt="Creative Commons {type}" style="border-width:0" '
+        'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
+        '</a>'
+    ),
+    'caller': (
+        '{{ caller(type, version, locale, size, message, license) }}'
+    )
+}
 
 LICENSES = {
     'by': {
@@ -84,13 +96,16 @@ class CreativeCommonsPlugin(Plugin):
 
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
-    def render_cc_license(self, type, size='normal'):
+    def render_cc_license(self, type, size='normal', template='full', caller=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
         license['message'] = _('This work is licensed under a')
-
-        return Markup(TEMPLATE.format(**license))
+        
+        if callable(caller):
+            return Markup(caller(**license))
+        
+        return Markup(TEMPLATES[template].format(**license))
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals.update(
