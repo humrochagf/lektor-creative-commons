@@ -24,6 +24,11 @@ TEMPLATES = {
         'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
         '</a>'
     ),
+    'text-only': (
+        '{message} '
+        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
+    ),
     'caller': (
         '{{ caller(type, version, locale, size, message, license) }}'
     )
@@ -96,15 +101,16 @@ class CreativeCommonsPlugin(Plugin):
 
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
-    def render_cc_license(self, type, size='normal', template='full', caller=None):
+    def render_cc_license(self, type, size='normal', template='full',
+                          caller=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
         license['message'] = _('This work is licensed under a')
-        
+
         if callable(caller):
             return Markup(caller(**license))
-        
+
         return Markup(TEMPLATES[template].format(**license))
 
     def on_setup_env(self, **extra):

@@ -12,11 +12,13 @@ Lektor plugin to add Creative Commons license to your pages
 On your templates use:
 
 ```
-<div class="license">{{ render_cc_license(type, size) }}</div>
+<div class="license">{{ render_cc_license(type, size, template, caller) }}</div>
 ```
 
 - `type` is a `string` with the license type (e.g.: `'by'`, `'by-sa'`, `'by-nc-sa'`).
-- `size` is an opitional parameter with the size `'normal'` or `'compact'`. Default is `'normal'`
+- `size` is an optional parameter with the size `'normal'` or `'compact'`. It defaults to `'normal'`.
+- `template` is an optional parameter with the template `'full'`, `'image-only'` or `'text-only'`. It defaults to `'full'`.
+- `caller` is an optional parameter that you can pass an callable to mount your own template.
 
 ## Example
 
@@ -32,4 +34,4 @@ The Current supported locales are:
 - en
 - pt_BR
 
-Any other locale will default to `en` (english).
+Any other locale will default to `en` (English).
