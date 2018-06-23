@@ -29,9 +29,6 @@ TEMPLATES = {
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
     ),
-    'caller': (
-        '{{ caller(type, version, locale, size, message, license) }}'
-    )
 }
 
 LICENSES = {
