@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-22 19:20+-03\n"
+"POT-Creation-Date: 2018-06-23 14:23+-03\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,31 +15,31 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: lektor_creative_commons/plugin.py:24
+#: lektor_creative_commons/plugin.py:38
 msgid "Creative Commons Attribution 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:31
+#: lektor_creative_commons/plugin.py:45
 msgid "Creative Commons Attribution-NonCommercial 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:39
+#: lektor_creative_commons/plugin.py:53
 msgid "Creative Commons Attribution-ShareAlike 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:47
+#: lektor_creative_commons/plugin.py:61
 msgid "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:55
+#: lektor_creative_commons/plugin.py:69
 msgid "Creative Commons Attribution-NoDerivatives 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:63
+#: lektor_creative_commons/plugin.py:77
 msgid "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License"
 msgstr ""
 
-#: lektor_creative_commons/plugin.py:91
+#: lektor_creative_commons/plugin.py:106
 msgid "This work is licensed under a"
 msgstr ""
 

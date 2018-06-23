@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-22 19:23-0300\n"
-"PO-Revision-Date: 2018-04-22 19:23-0300\n"
+"POT-Creation-Date: 2018-06-23 14:23+-03\n"
+"PO-Revision-Date: 2018-06-23 15:53-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -14,22 +14,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: lektor_creative_commons/plugin.py:24
+#: lektor_creative_commons/plugin.py:38
 msgid "Creative Commons Attribution 4.0 International License"
 msgstr "Licença Internacional Creative Commons 4.0 Atribuição"
 
-#: lektor_creative_commons/plugin.py:31
+#: lektor_creative_commons/plugin.py:45
 msgid "Creative Commons Attribution-NonCommercial 4.0 International License"
 msgstr "Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial"
 
-#: lektor_creative_commons/plugin.py:39
+#: lektor_creative_commons/plugin.py:53
 msgid "Creative Commons Attribution-ShareAlike 4.0 International License"
 msgstr "Licença Internacional Creative Commons 4.0 Atribuição-CompartilhaIgual"
 
-#: lektor_creative_commons/plugin.py:47
+#: lektor_creative_commons/plugin.py:61
 msgid ""
 "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
 "License"
@@ -37,11 +37,11 @@ msgstr ""
 "Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial-"
 "CompartilhaIgual"
 
-#: lektor_creative_commons/plugin.py:55
+#: lektor_creative_commons/plugin.py:69
 msgid "Creative Commons Attribution-NoDerivatives 4.0 International License"
 msgstr "Licença Internacional Creative Commons 4.0 Atribuição-SemDerivações"
 
-#: lektor_creative_commons/plugin.py:63
+#: lektor_creative_commons/plugin.py:77
 msgid ""
 "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
 "License"
@@ -49,6 +49,6 @@ msgstr ""
 "Licença Internacional Creative Commons 4.0 Atribuição-NãoComercial-"
 "SemDerivações"
 
-#: lektor_creative_commons/plugin.py:91
+#: lektor_creative_commons/plugin.py:106
 msgid "This work is licensed under a"
 msgstr "Este trabalho está licenciado sob uma"
