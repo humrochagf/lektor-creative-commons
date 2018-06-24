@@ -29,11 +29,11 @@ class Translator(object):
             gettext = self.lang.gettext
         else:
             gettext = self.lang.ugettext
-        
+
         translated = gettext(string)
         if arguments is not None:
             translated = translated % arguments
-        
+
         return translated
 
 
@@ -46,7 +46,7 @@ class __proxy__(object):
 
     def __repr__(self):
         return self.translator.translate(self.string, self.arguments)
-    
+
     __str__ = __repr__
 
 
