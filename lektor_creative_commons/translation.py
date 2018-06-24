@@ -24,24 +24,30 @@ class Translator(object):
             'messages', localedir=LOCALES_DIR, languages=[locale])
         self.lang.install()
 
-    def translate(self, string):
+    def translate(self, string, arguments=None):
         if PY3:
-            return self.lang.gettext(string)
+            gettext = self.lang.gettext
         else:
-            return self.lang.ugettext(string)
+            gettext = self.lang.ugettext
+        
+        translated = gettext(string)
+        if arguments is not None:
+            translated = translated % arguments
+        
+        return translated
 
 
 class __proxy__(object):
 
-    def __init__(self, string, translator):
+    def __init__(self, string, translator, arguments):
         self.translator = translator
         self.string = string
+        self.arguments = arguments
 
     def __repr__(self):
-        return self.translator.translate(self.string)
-
-    def __str__(self):
-        return self.translator.translate(self.string)
+        return self.translator.translate(self.string, self.arguments)
+    
+    __str__ = __repr__
 
 
 class LazyTranslator(object):
@@ -49,8 +55,8 @@ class LazyTranslator(object):
     def __init__(self):
         self.translator = Translator()
 
-    def __call__(self, string):
-        self.proxy = __proxy__(string, self.translator)
+    def __call__(self, string, arguments=None):
+        self.proxy = __proxy__(string, self.translator, arguments)
 
         return self.proxy
 

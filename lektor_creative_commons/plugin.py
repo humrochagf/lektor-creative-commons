@@ -38,6 +38,7 @@ LICENSES = {
         'license': _(
             'Creative Commons Attribution 4.0 International License'
         ),
+        'license_type': _('Attribution'),
     },
     'by-nc': {
         'type': 'by-nc',
@@ -46,6 +47,7 @@ LICENSES = {
             'Creative Commons Attribution-NonCommercial '
             '4.0 International License'
         ),
+        'license_type': _('Attribution - NonCommercial'),
     },
     'by-sa': {
         'type': 'by-sa',
@@ -54,6 +56,7 @@ LICENSES = {
             'Creative Commons Attribution-ShareAlike 4.0 '
             'International License'
         ),
+        'license_type': _('Attribution - ShareAlike'),
     },
     'by-nc-sa': {
         'type': 'by-nc-sa',
@@ -62,6 +65,7 @@ LICENSES = {
             'Creative Commons Attribution-NonCommercial-ShareAlike '
             '4.0 International License'
         ),
+        'license_type': _('Attribution - NonCommercial - ShareAlike'),
     },
     'by-nd': {
         'type': 'by-nd',
@@ -70,6 +74,7 @@ LICENSES = {
             'Creative Commons Attribution-NoDerivatives 4.0 '
             'International License'
         ),
+        'license_type': _('Attribution - NoDerivatives'),
     },
     'by-nc-nd': {
         'type': 'by-nc-nd',
@@ -78,6 +83,7 @@ LICENSES = {
             'Creative Commons Attribution-NonCommercial-NoDerivatives '
             '4.0 International License'
         ),
+        'license_type': _('Attribution - NonCommercial - NoDerivatives'),
     },
 }
 
@@ -104,7 +110,8 @@ class CreativeCommonsPlugin(Plugin):
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
         license['message'] = _('This work is licensed under a')
-
+        license['license'] = _('Creative Commons %(license_type)s 4.0 International License.', license)
+        
         if callable(caller):
             return Markup(caller(**license))
 
