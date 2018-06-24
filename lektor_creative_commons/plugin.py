@@ -87,7 +87,7 @@ class CreativeCommonsPlugin(Plugin):
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
         license['message'] = _('This work is licensed under a')
-        license['license'] = _('Creative Commons %(license_type)s 4.0 International License.', license)
+        license['license'] = _('Creative Commons %(license_type)s 4.0 International License', license)
         
         if callable(caller):
             return Markup(caller(**license))
