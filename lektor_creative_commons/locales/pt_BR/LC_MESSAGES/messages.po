@@ -52,3 +52,25 @@ msgstr ""
 #: lektor_creative_commons/plugin.py:106
 msgid "This work is licensed under a"
 msgstr "Este trabalho está licenciado sob uma"
+
+msgid "Attribution"
+msgstr "Atribuição"
+
+msgid "Attribution - NonCommercial"
+msgstr "Atribuição - NãoComercial"
+
+msgid "Attribution - ShareAlike"
+msgstr "Atribuição-CompartilhaIgual"
+
+msgid "Attribution - NonCommercial - ShareAlike"
+msgstr "Atribuição - NãoComercial - CompartilhaIgual"
+
+msgid "Attribution - NoDerivatives"
+msgstr "Atribuição - SemDerivações"
+
+msgid "Attribution - NonCommercial - NoDerivatives"
+msgstr "Atribuição - NãoComercial - SemDerivações"
+
+#, python-format
+msgid "Creative Commons %(license_type)s 4.0 International License."
+msgstr "Licença Internacional Creative Commons 4.0 %(license_type)s."

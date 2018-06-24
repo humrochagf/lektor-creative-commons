@@ -43,3 +43,24 @@ msgstr ""
 msgid "This work is licensed under a"
 msgstr ""
 
+msgid "Attribution"
+msgstr ""
+
+msgid "Attribution - NonCommercial"
+msgstr ""
+
+msgid "Attribution - ShareAlike"
+msgstr ""
+
+msgid "Attribution - NonCommercial - ShareAlike"
+msgstr ""
+
+msgid "Attribution - NoDerivatives"
+msgstr ""
+
+msgid "Attribution - NonCommercial - NoDerivatives"
+msgstr ""
+
+#, python-format
+msgid "Creative Commons %(license_type)s 4.0 International License."
+msgstr ""
