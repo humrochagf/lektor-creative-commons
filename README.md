@@ -47,5 +47,6 @@ The Current supported locales are:
 
 - en
 - pt_BR
+- de
 
 Any other locale will default to `en` (English).
