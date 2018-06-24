@@ -35,54 +35,31 @@ LICENSES = {
     'by': {
         'type': 'by',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution 4.0 International License'
-        ),
         'license_type': _('Attribution'),
     },
     'by-nc': {
         'type': 'by-nc',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution - NonCommercial '
-            '4.0 International License'
-        ),
         'license_type': _('Attribution - NonCommercial'),
     },
     'by-sa': {
         'type': 'by-sa',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution - ShareAlike 4.0 '
-            'International License'
-        ),
         'license_type': _('Attribution - ShareAlike'),
     },
     'by-nc-sa': {
         'type': 'by-nc-sa',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution - NonCommercial - ShareAlike '
-            '4.0 International License'
-        ),
         'license_type': _('Attribution - NonCommercial - ShareAlike'),
     },
     'by-nd': {
         'type': 'by-nd',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution - NoDerivatives 4.0 '
-            'International License'
-        ),
         'license_type': _('Attribution - NoDerivatives'),
     },
     'by-nc-nd': {
         'type': 'by-nc-nd',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution - NonCommercial - NoDerivatives '
-            '4.0 International License'
-        ),
         'license_type': _('Attribution - NonCommercial - NoDerivatives'),
     },
 }

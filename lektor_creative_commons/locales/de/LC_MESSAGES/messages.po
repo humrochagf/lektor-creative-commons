@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-24 19:17+0200\n"
+"POT-Creation-Date: 2018-06-24 19:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,40 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 "Generated-By: pygettext.py 1.5\n"
-
-msgid "Creative Commons Attribution 4.0 International License"
-msgstr "Creative Commons Namensnennung 4.0 Internationale Lizenz"
-
-msgid "Creative Commons Attribution - NonCommercial 4.0 International License"
-msgstr ""
-"Creative Commons Namensnennung - Nicht kommerziell 4.0 Internationale Lizenz"
-
-msgid "Creative Commons Attribution - ShareAlike 4.0 International License"
-msgstr ""
-"Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 "
-"Internationale Lizenz"
-
-msgid ""
-"Creative Commons Attribution - NonCommercial - ShareAlike 4.0 International "
-"License"
-msgstr ""
-"Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter "
-"gleichen Bedingungen 4.0 Internationale Lizenz"
-
-msgid "Creative Commons Attribution - NoDerivatives 4.0 International License"
-msgstr ""
-"Creative Commons Namensnennung - Keine Bearbeitungen 4.0 Internationale "
-"Lizenz"
-
-msgid ""
-"Creative Commons Attribution - NonCommercial - NoDerivatives 4.0 "
-"International License"
-msgstr ""
-"Creative Commons Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 "
-"Internationale Lizenz"
-
-msgid "This work is licensed under a"
-msgstr "Dieses Werk ist lizenziert unter einer "
 
 msgid "Attribution"
 msgstr "Namensnennung"
@@ -68,6 +34,9 @@ msgstr "Namensnennung - Keine Bearbeitungen"
 
 msgid "Attribution - NonCommercial - NoDerivatives"
 msgstr "Namensnennung - Nicht kommerziell - Keine Bearbeitungen"
+
+msgid "This work is licensed under a"
+msgstr "Dieses Werk ist lizenziert unter einer "
 
 #, python-format
 msgid "Creative Commons %(license_type)s 4.0 International License."
