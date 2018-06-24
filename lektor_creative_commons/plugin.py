@@ -44,7 +44,7 @@ LICENSES = {
         'type': 'by-nc',
         'version': '4.0',
         'license': _(
-            'Creative Commons Attribution-NonCommercial '
+            'Creative Commons Attribution - NonCommercial '
             '4.0 International License'
         ),
         'license_type': _('Attribution - NonCommercial'),
@@ -53,7 +53,7 @@ LICENSES = {
         'type': 'by-sa',
         'version': '4.0',
         'license': _(
-            'Creative Commons Attribution-ShareAlike 4.0 '
+            'Creative Commons Attribution - ShareAlike 4.0 '
             'International License'
         ),
         'license_type': _('Attribution - ShareAlike'),
@@ -62,7 +62,7 @@ LICENSES = {
         'type': 'by-nc-sa',
         'version': '4.0',
         'license': _(
-            'Creative Commons Attribution-NonCommercial-ShareAlike '
+            'Creative Commons Attribution - NonCommercial - ShareAlike '
             '4.0 International License'
         ),
         'license_type': _('Attribution - NonCommercial - ShareAlike'),
@@ -71,7 +71,7 @@ LICENSES = {
         'type': 'by-nd',
         'version': '4.0',
         'license': _(
-            'Creative Commons Attribution-NoDerivatives 4.0 '
+            'Creative Commons Attribution - NoDerivatives 4.0 '
             'International License'
         ),
         'license_type': _('Attribution - NoDerivatives'),
@@ -80,7 +80,7 @@ LICENSES = {
         'type': 'by-nc-nd',
         'version': '4.0',
         'license': _(
-            'Creative Commons Attribution-NonCommercial-NoDerivatives '
+            'Creative Commons Attribution - NonCommercial - NoDerivatives '
             '4.0 International License'
         ),
         'license_type': _('Attribution - NonCommercial - NoDerivatives'),
