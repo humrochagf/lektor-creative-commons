@@ -11,7 +11,7 @@ TEMPLATES = {
     'full': (
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="Creative Commons {type}" style="border-width:0" '
+        '<img alt="{license}" style="border-width:0" '
         'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
         '</a><br />{message} '
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
@@ -20,7 +20,7 @@ TEMPLATES = {
     'image-only': (
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="Creative Commons {type}" style="border-width:0" '
+        '<img alt="{license}" style="border-width:0" '
         'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
         '</a>'
     ),
