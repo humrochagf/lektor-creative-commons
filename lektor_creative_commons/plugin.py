@@ -11,7 +11,7 @@ TEMPLATES = {
     'full': (
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="Creative Commons {type}" style="border-width:0" '
+        '<img alt="{license}" style="border-width:0" '
         'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
         '</a><br />{message} '
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
@@ -20,7 +20,7 @@ TEMPLATES = {
     'image-only': (
         '<a rel="license" target="_blank" href="http://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="Creative Commons {type}" style="border-width:0" '
+        '<img alt="{license}" style="border-width:0" '
         'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
         '</a>'
     ),
@@ -35,49 +35,32 @@ LICENSES = {
     'by': {
         'type': 'by',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution 4.0 International License'
-        ),
+        'license_type': _('Attribution'),
     },
     'by-nc': {
         'type': 'by-nc',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution-NonCommercial '
-            '4.0 International License'
-        ),
+        'license_type': _('Attribution - NonCommercial'),
     },
     'by-sa': {
         'type': 'by-sa',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution-ShareAlike 4.0 '
-            'International License'
-        ),
+        'license_type': _('Attribution - ShareAlike'),
     },
     'by-nc-sa': {
         'type': 'by-nc-sa',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution-NonCommercial-ShareAlike '
-            '4.0 International License'
-        ),
+        'license_type': _('Attribution - NonCommercial - ShareAlike'),
     },
     'by-nd': {
         'type': 'by-nd',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution-NoDerivatives 4.0 '
-            'International License'
-        ),
+        'license_type': _('Attribution - NoDerivatives'),
     },
     'by-nc-nd': {
         'type': 'by-nc-nd',
         'version': '4.0',
-        'license': _(
-            'Creative Commons Attribution-NonCommercial-NoDerivatives '
-            '4.0 International License'
-        ),
+        'license_type': _('Attribution - NonCommercial - NoDerivatives'),
     },
 }
 
@@ -104,7 +87,8 @@ class CreativeCommonsPlugin(Plugin):
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
         license['message'] = _('This work is licensed under a')
-
+        license['license'] = _('Creative Commons %(license_type)s 4.0 International License', license)
+        
         if callable(caller):
             return Markup(caller(**license))
 
