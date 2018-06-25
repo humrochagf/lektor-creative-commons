@@ -33,7 +33,7 @@ def create_mo_files():
     return data_files
 
 
-with open('README.md', 'rt', encoding='utf8') as f:
+with open('README.md', 'r') as f:
     README = f.read()
 
 setup(
