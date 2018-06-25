@@ -33,7 +33,7 @@ def create_mo_files():
     return data_files
 
 
-with open('README.md', 'rt', encoding='utf8') as f:
+with open('README.md', 'r') as f:
     README = f.read()
 
 setup(
@@ -41,7 +41,7 @@ setup(
     description='Lektor plugin to add Creative Commons license to your pages',
     long_description=README,
     long_description_content_type='text/markdown',
-    version='0.4.1',
+    version='0.4.2',
     url='https://github.com/humrochagf/lektor-creative-commons',
     project_urls={
         'Documentation': (
