@@ -1,13 +1,17 @@
 # Makefile
 
+.PHONY: translations
+translations: # run update translations command
+	./bin/update_translations.sh
+
 .PHONY: build
-build: # build package for distribuition
+build: # build package for distribution
 	rm -rf dist
 	python setup.py sdist
 	python setup.py bdist_wheel --universal
 
 .PHONY: publish
-publish: # publish package to the pypi
+publish: # publish package to the PyPI
 	twine upload dist/*
 
 .PHONY: clean
