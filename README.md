@@ -31,7 +31,7 @@ Simply rendering the license of your choice:
 Using Jinja2 [call](http://jinja.pocoo.org/docs/2.10/templates/#call) block to inject your own template:
 
 ```
-{% call(type, version, locale, size, message, license, license_type) render_cc_license('by-sa') %}
+{% call(type, version, locale, size, message, license, license_type, icon_path) render_cc_license('by-sa') %}
   <a class="nav-item" style="" rel="license" target="_blank" href="http://creativecommons.org/licenses/{{type}}/{{version}}/deed.{{locale}}">
     <img class="" alt="Creative Commons {{type}}" style="border-width:0" src="https://i.creativecommons.org/l/{{type}}/{{version}}/{{size}}.png" />
   </a>
