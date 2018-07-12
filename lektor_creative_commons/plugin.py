@@ -85,18 +85,17 @@ class AssetDownloadError(Exception):
 
 
 class CreativeCommonsPlugin(Plugin):
-
+    
     name = 'Creative Commons'
     description = 'Add Creative Commons license to your pages.'
-
+    
     def __init__(self, env, id):
         self.locale = env.load_config().site_locale or 'en'
         _.translator.configure(self.locale)
-
+        
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
-    def render_cc_license(self, type, size='normal', template='full',
-                          caller=None):
+    def render_cc_license(self, type, size='normal', template='full', caller=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
@@ -105,39 +104,27 @@ class CreativeCommonsPlugin(Plugin):
             'Creative Commons %(license_type)s 4.0 International License',
             license
         )
-        license['icon_path'] = self.load_icon(license)
-
+        license['icon_path'] = self.icon_path(license)
+        
         if callable(caller):
             return Markup(caller(**license))
-
+        
         return Markup(TEMPLATES[template].format(**license))
 
-    def load_icon(self, license):
-        icon_url = (
-            'https://licensebuttons.net/l/{type}/{version}/{size}.png'
-        ).format(**license)
-        icon_path = (
+    def icon_path(self, license):
+        icon_target_path = (
             '/static/lektor-creative-commons/{type}/{version}/{size}.png'
         ).format(**license)
-
+        icon_source_path = (
+            os.path.join(os.path.dirname(__file__), 'assets', license['type'], license['version'], license['size'] + '.png')
+        )
         ctx = get_ctx()
-
-        @ctx.sub_artifact(icon_path, source_obj=icon_url,
-                          sources=ctx.artifact.sources)
-        def download_icon(artifact):
-            if not os.path.isfile(artifact.dst_filename):
-                try:
-                    icon_content = urlopen(artifact.source_obj).read()
-                except URLError:
-                    raise AssetDownloadError(
-                        'Unable to download the asset, check your connection'
-                    )
-
-                with artifact.open('wb') as artifact_file:
-                    artifact_file.write(icon_content)
-
-        return icon_path
-
+        @ctx.sub_artifact(icon_target_path, sources=[icon_source_path])
+        def copy_icon(artifact):
+            artifact.replace_with_file(icon_source_path, copy=True)
+        
+        return icon_target_path
+    
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals.update(
             render_cc_license=self.render_cc_license
