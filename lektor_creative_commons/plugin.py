@@ -104,10 +104,15 @@ class CreativeCommonsPlugin(Plugin):
             'Creative Commons %(license_type)s 4.0 International License',
             license
         )
+        license['license_url'] = "https://creativecommons.org/licenses/{type}/{version}/deed.{locale}".format(**license)
         license['icon_path'] = self.icon_path(license)
         
         if callable(caller):
-            return Markup(caller(**license))
+            if caller.catch_kwargs:
+                return Markup(caller(**license))
+            else:
+                license_subset = dict((argument_name, license[argument_name]) for argument_name in caller.arguments)
+                return Markup(caller(**license_subset))
         
         return Markup(TEMPLATES[template].format(**license))
 
