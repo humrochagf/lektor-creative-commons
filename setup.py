@@ -62,6 +62,9 @@ setup(
     },
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        'lektor_creative_commons': ['assets/*/*/*.png']
+    },
     zip_safe=False,
     data_files=create_mo_files(),
     classifiers=[
