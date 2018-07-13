@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 POT_FILE=lektor_creative_commons/locales/messages.pot
 
