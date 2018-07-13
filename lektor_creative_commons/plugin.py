@@ -4,12 +4,9 @@ from __future__ import unicode_literals
 
 try:
     # python 3
-    from urllib.request import urlopen
     from urllib.error import URLError
 except ImportError:
     # legacy python
-    from urllib import urlopen
-
     URLError = IOError
 
 import os
@@ -80,22 +77,19 @@ LICENSE_SIZES = {
 }
 
 
-class AssetDownloadError(Exception):
-    pass
-
-
 class CreativeCommonsPlugin(Plugin):
-    
+
     name = 'Creative Commons'
     description = 'Add Creative Commons license to your pages.'
-    
+
     def __init__(self, env, id):
         self.locale = env.load_config().site_locale or 'en'
         _.translator.configure(self.locale)
-        
+
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
-    def render_cc_license(self, type, size='normal', template='full', caller=None):
+    def render_cc_license(self, type, size='normal', template='full',
+                          caller=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
@@ -104,32 +98,41 @@ class CreativeCommonsPlugin(Plugin):
             'Creative Commons %(license_type)s 4.0 International License',
             license
         )
-        license['license_url'] = "https://creativecommons.org/licenses/{type}/{version}/deed.{locale}".format(**license)
+        license['license_url'] = (
+            'https://creativecommons.org/'
+            'licenses/{type}/{version}/deed.{locale}'
+        ).format(**license)
         license['icon_path'] = self.icon_path(license)
-        
+
         if callable(caller):
             if caller.catch_kwargs:
                 return Markup(caller(**license))
             else:
-                license_subset = dict((argument_name, license[argument_name]) for argument_name in caller.arguments)
+                license_subset = dict(
+                    (argument_name, license[argument_name])
+                    for argument_name in caller.arguments
+                )
+
                 return Markup(caller(**license_subset))
-        
+
         return Markup(TEMPLATES[template].format(**license))
 
     def icon_path(self, license):
         icon_target_path = (
             '/static/lektor-creative-commons/{type}/{version}/{size}.png'
         ).format(**license)
-        icon_source_path = (
-            os.path.join(os.path.dirname(__file__), 'assets', license['type'], license['version'], license['size'] + '.png')
+        icon_source_path = os.path.join(
+            os.path.dirname(__file__), 'assets', license['type'],
+            license['version'], license['size'] + '.png'
         )
         ctx = get_ctx()
+
         @ctx.sub_artifact(icon_target_path, sources=[icon_source_path])
         def copy_icon(artifact):
             artifact.replace_with_file(icon_source_path, copy=True)
-        
+
         return icon_target_path
-    
+
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals.update(
             render_cc_license=self.render_cc_license
