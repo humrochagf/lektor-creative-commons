@@ -2,6 +2,19 @@
 
 from __future__ import unicode_literals
 
+try:
+    # python 3
+    from urllib.request import urlopen
+    from urllib.error import URLError
+except ImportError:
+    # legacy python
+    from urllib import urlopen
+
+    URLError = IOError
+
+import os
+
+from lektor.context import get_ctx
 from lektor.pluginsystem import Plugin
 from markupsafe import Markup
 
@@ -9,24 +22,21 @@ from .translation import translate_lazy as _
 
 TEMPLATES = {
     'full': (
-        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        '<a rel="license" target="_blank" href="https://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="{license}" style="border-width:0" '
-        'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
+        '<img alt="{license}" style="border-width:0" src="{icon_path}" />'
         '</a><br />{message} '
-        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        '<a rel="license" target="_blank" href="https://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
     ),
     'image-only': (
-        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        '<a rel="license" target="_blank" href="https://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">'
-        '<img alt="{license}" style="border-width:0" '
-        'src="https://i.creativecommons.org/l/{type}/{version}/{size}.png" />'
-        '</a>'
+        '<img alt="{license}" style="border-width:0" src="{icon_path}" /></a>'
     ),
     'text-only': (
         '{message} '
-        '<a rel="license" target="_blank" href="http://creativecommons.org/'
+        '<a rel="license" target="_blank" href="https://creativecommons.org/'
         'licenses/{type}/{version}/deed.{locale}">{license}</a>.'
     ),
 }
@@ -70,19 +80,22 @@ LICENSE_SIZES = {
 }
 
 
-class CreativeCommonsPlugin(Plugin):
+class AssetDownloadError(Exception):
+    pass
 
+
+class CreativeCommonsPlugin(Plugin):
+    
     name = 'Creative Commons'
     description = 'Add Creative Commons license to your pages.'
-
+    
     def __init__(self, env, id):
         self.locale = env.load_config().site_locale or 'en'
         _.translator.configure(self.locale)
-
+        
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
-    def render_cc_license(self, type, size='normal', template='full',
-                          caller=None):
+    def render_cc_license(self, type, size='normal', template='full', caller=None):
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
         license['locale'] = self.locale
@@ -91,12 +104,27 @@ class CreativeCommonsPlugin(Plugin):
             'Creative Commons %(license_type)s 4.0 International License',
             license
         )
-
+        license['icon_path'] = self.icon_path(license)
+        
         if callable(caller):
             return Markup(caller(**license))
-
+        
         return Markup(TEMPLATES[template].format(**license))
 
+    def icon_path(self, license):
+        icon_target_path = (
+            '/static/lektor-creative-commons/{type}/{version}/{size}.png'
+        ).format(**license)
+        icon_source_path = (
+            os.path.join(os.path.dirname(__file__), 'assets', license['type'], license['version'], license['size'] + '.png')
+        )
+        ctx = get_ctx()
+        @ctx.sub_artifact(icon_target_path, sources=[icon_source_path])
+        def copy_icon(artifact):
+            artifact.replace_with_file(icon_source_path, copy=True)
+        
+        return icon_target_path
+    
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals.update(
             render_cc_license=self.render_cc_license
