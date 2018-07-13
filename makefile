@@ -4,6 +4,10 @@
 translations: # run update translations command
 	./bin/update_translations.sh
 
+.PHONY: icons
+icons: # update license icons
+	./bin/update_icons.sh
+
 .PHONY: build
 build: # build package for distribution
 	rm -rf dist
