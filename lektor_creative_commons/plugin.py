@@ -128,11 +128,12 @@ class CreativeCommonsPlugin(Plugin):
         ctx = get_ctx()
 
         @ctx.sub_artifact(
-            icon_target_path, sources=[], source_obj=icon_source_path
+            icon_target_path,
+            sources=[ctx.source.source_filename],
+            source_obj=icon_source_path
         )
         def copy_icon(artifact):
-            artifact.sources.append(artifact.dst_filename)
-            artifact.replace_with_file(icon_source_path, copy=True)
+            artifact.replace_with_file(artifact.source_obj, copy=True)
 
         return icon_target_path
 
