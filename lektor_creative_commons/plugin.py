@@ -89,10 +89,16 @@ class CreativeCommonsPlugin(Plugin):
         super(CreativeCommonsPlugin, self).__init__(env, id)
 
     def render_cc_license(self, type, size='normal', template='full',
-                          caller=None):
+                          locale=None, caller=None):
+        # override locale
+        if (locale):
+            _.translator.configure(locale)
+        else:
+            locale = self.locale
+
         license = LICENSES[type].copy()
         license['size'] = LICENSE_SIZES[size]
-        license['locale'] = self.locale
+        license['locale'] = locale
         license['message'] = _('This work is licensed under a')
         license['license'] = _(
             'Creative Commons %(license_type)s 4.0 International License',
