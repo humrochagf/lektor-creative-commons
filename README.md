@@ -18,6 +18,7 @@ On your templates use:
 - `type` is a `string` with the license type (e.g.: `'by'`, `'by-sa'`, `'by-nc-sa'`).
 - `size` is an optional parameter with the size `'normal'` or `'compact'`. It defaults to `'normal'`.
 - `template` is an optional parameter with the template `'full'`, `'image-only'` or `'text-only'`. It defaults to `'full'`.
+- `locale` is an optional parameter that overrides the locale at function calling time.
 - `caller` is an optional parameter that you can pass an callable to mount your own template. This argument is usually omitted. See the example of how to use it with the [Jinja call feature](http://jinja.pocoo.org/docs/2.10/templates/#call).
 
 ## Examples
