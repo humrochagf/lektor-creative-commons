@@ -41,7 +41,7 @@ setup(
     description='Lektor plugin to add Creative Commons license to your pages',
     long_description=README,
     long_description_content_type='text/markdown',
-    version='0.5.3',
+    version='0.6.0',
     url='https://github.com/humrochagf/lektor-creative-commons',
     project_urls={
         'Documentation': (
